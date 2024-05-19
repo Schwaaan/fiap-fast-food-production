@@ -25,4 +25,11 @@ class OrderStatusTest {
         OrderStatus orderStatus = OrderStatus.from(3L);
         assertEquals(OrderStatus.CANCEL, orderStatus);
     }
+
+    @Test
+    void fromIllegalArgumentException() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            OrderStatus.from(5L);
+        });
+    }
 }
