@@ -16,4 +16,17 @@ public enum OrderStatus {
         this.description = description;
         this.id = id;
     }
+
+    OrderStatus(Long id) {
+        this.id = id;
+    }
+
+    public static OrderStatus from(Long id) {
+        for (OrderStatus status : OrderStatus.values()) {
+            if (status.getId() == id) {
+                return status;
+            }
+        }
+        throw new IllegalArgumentException("ID inválido para StatusEnum: " + id);
+    }
 }

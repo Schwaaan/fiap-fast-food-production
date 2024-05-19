@@ -7,7 +7,8 @@ import com.fiapfastfood.groupfoursix.interfaces.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController(value = "/order")
+@RestController
+@RequestMapping(value = "/order")
 public class OrderController {
 
 
