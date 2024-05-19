@@ -31,6 +31,13 @@ class OrderTest {
     }
 
     @Test
+    void setStatus() {
+        Order order = new Order();
+        order.setOrderStatus(OrderStatus.PROGRESS);
+        assertEquals(OrderStatus.PROGRESS, order.getOrderStatus());
+    }
+
+    @Test
     void setOrderStatus() {
         Order order = new Order();
         order.setId("1");

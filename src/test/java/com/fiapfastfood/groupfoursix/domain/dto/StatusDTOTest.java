@@ -12,4 +12,14 @@ class StatusDTOTest {
         assertEquals("2", statusDTO.getOrderId());
         assertEquals(1L, statusDTO.getStatusId());
     }
+
+    @Test
+    void getOrderIdUsingSet() {
+        StatusDTO statusDTO = new StatusDTO("2", 1L);
+        statusDTO.setStatusId(2L);
+        statusDTO.setOrderId("3");
+
+        assertEquals("3", statusDTO.getOrderId());
+        assertEquals(2L, statusDTO.getStatusId());
+    }
 }
