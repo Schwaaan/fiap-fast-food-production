@@ -27,3 +27,5 @@ jobs:
           key: ${{ runner.os }}-sonarqube-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-sonarqube-
+      - name: Build and run tests
+        run: mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install
