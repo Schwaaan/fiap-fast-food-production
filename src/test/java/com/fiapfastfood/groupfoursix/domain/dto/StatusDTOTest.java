@@ -8,9 +8,7 @@ class StatusDTOTest {
 
     @Test
     void getOrderId() {
-        StatusDTO statusDTO = new StatusDTO();
-        statusDTO.setOrderId("2");
-        statusDTO.setStatusId(1L);
+        StatusDTO statusDTO = new StatusDTO("2", 1L);
         assertEquals("2", statusDTO.getOrderId());
         assertEquals(1L, statusDTO.getStatusId());
     }
