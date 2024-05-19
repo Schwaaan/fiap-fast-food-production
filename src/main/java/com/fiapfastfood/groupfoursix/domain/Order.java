@@ -21,4 +21,9 @@ public class Order {
         this.id = id;
         this.orderStatus = OrderStatus.PROGRESS;
     }
+
+    public Order(String number, OrderStatus orderStatus) {
+        this.id = number;
+        this.orderStatus = orderStatus;
+    }
 }
