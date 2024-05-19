@@ -9,10 +9,12 @@ import com.fiapfastfood.groupfoursix.interfaces.OrderService;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.internal.matchers.Or;
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,6 +23,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@RunWith(MockitoJUnitRunner.class)
 class OrderServiceImplTest {
 
     @Mock
@@ -67,12 +70,33 @@ class OrderServiceImplTest {
     }
 
     @Test
-    void cancelOrder() {
-        Mockito.when(orderRepository.findById("4")).thenReturn(Optional.of(new Order("4")));
-        Mockito.when(orderRepository.save(new Order("4", OrderStatus.CANCEL))).thenReturn(new Order("4", OrderStatus.CANCEL));
+    void notUpdateOrderBecauseNotFound() {
+        Mockito.when(orderRepository.findById("3")).thenReturn(Optional.of(new Order("3")));
+        Mockito.when(orderRepository.save(new Order("3", OrderStatus.DONE))).thenReturn(new Order("3", OrderStatus.DONE));
 
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setId("4");
+
+        Order order = orderService.updateOrder(new StatusDTO("4", 2L));
+
+        assertNull(order.getId());
+        assertNull(order.getOrderStatus());
+    }
+
+    @Test
+    void notCancelOrderBecauseNotFound() {
+        Mockito.when(orderRepository.findById("3")).thenReturn(Optional.of(new Order("3")));
+        Mockito.when(orderRepository.save(new Order("3", OrderStatus.DONE))).thenReturn(new Order("3", OrderStatus.DONE));
+        Order order = orderService.cancelOrder("5");
+
+        assertNull(order.getId());
+        assertNull(order.getOrderStatus());
+    }
+
+    @Test
+    void cancelOrder() {
+        Mockito.when(orderRepository.findById("4")).thenReturn(Optional.of(new Order("4")));
+        Mockito.when(orderRepository.save(new Order("4", OrderStatus.CANCEL))).thenReturn(new Order("4", OrderStatus.CANCEL));
         orderService.cancelOrder("4");
     }
 }

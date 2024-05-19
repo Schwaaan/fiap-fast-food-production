@@ -17,10 +17,6 @@ public enum OrderStatus {
         this.id = id;
     }
 
-    OrderStatus(Long id) {
-        this.id = id;
-    }
-
     public static OrderStatus from(Long id) {
         for (OrderStatus status : OrderStatus.values()) {
             if (status.getId() == id) {
