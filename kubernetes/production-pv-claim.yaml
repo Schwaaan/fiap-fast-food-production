@@ -1,0 +1,13 @@
+# precisa?
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mssql-order-pvc
+spec:
+  #storageClassName: manual   --somente informar quando houver pv criado
+  accessModes:
+  - ReadWriteOnce # what?
+  resources:
+    requests:
+      storage: 10Mi

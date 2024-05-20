@@ -1,0 +1,35 @@
+------------VOLUME------------
+kubectl apply -f production-pv-claim.yaml
+
+----------SQL SERVER----------
+kubectl apply -f production-mongodb-deployment.yaml
+kubectl apply -f production-mongodb-service.yaml
+
+--------------API-------------
+kubectl apply -f production-api-deployment.yaml
+kubectl apply -f production-api-service.yaml
+
+
+---------RODAR TODOS-----------
+kubectl apply -f production-pv-claim.yaml,production-mongodb-deployment.yaml,production-mongodb-service.yaml,production-api-deployment.yaml,production-api-service.yaml,
+production-api-hpa.yaml,production-metrics.yaml
+
+--------------GET-------------
+kubectl get all
+kubectl get pod
+kubectl get deployment
+kubectl get service
+kubectl get pv
+kubectl get pvc
+
+
+------------DELETE------------
+kubectl delete service --all
+kubectl delete deployment --all
+kubectl delete pod --all
+kubectl delete pvc --all
+kubectl delete pv --all
+
+
+---------DELETE ALL---------
+kubectl delete all --all
