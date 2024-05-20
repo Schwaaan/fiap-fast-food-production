@@ -1,10 +1,8 @@
-# precisa?
-
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv-volume
-  namespace: mo
+  name: pv-production-volume
+  namespace: mongo
   labels:
     type: local
 spec:
@@ -13,4 +11,6 @@ spec:
     storage: 10Mi
   persistentVolumeReclaimPolicy: Retain
   accessModes:
-    - ReadWriteOnce # ?
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/db"
