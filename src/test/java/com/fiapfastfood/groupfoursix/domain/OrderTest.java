@@ -61,6 +61,10 @@ class OrderTest {
 
         assertTrue(order1.equals(order2));
         assertFalse(order1.equals(order3));
+        assertTrue(order1.equals(order2));
+        assertEquals(order1.hashCode(), order2.hashCode());
+        assertFalse(order1.equals(order3));
+        assertNotEquals(order1.hashCode(), order3.hashCode());
     }
 
     @Test
@@ -78,4 +82,6 @@ class OrderTest {
         String expectedToString = "Order(id=1, orderStatus=PROGRESS)";
         assertEquals(expectedToString, order.toString());
     }
+
+
 }
