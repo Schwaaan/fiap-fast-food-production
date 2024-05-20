@@ -7,6 +7,7 @@ import com.fiapfastfood.groupfoursix.domain.dto.StatusDTO;
 import com.fiapfastfood.groupfoursix.domain.repository.OrderRepository;
 import com.fiapfastfood.groupfoursix.interfaces.OrderService;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -26,6 +27,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Value(("${order.url}"))
     @Getter
+    @Setter
     private String orderUrl;
 
     @Override

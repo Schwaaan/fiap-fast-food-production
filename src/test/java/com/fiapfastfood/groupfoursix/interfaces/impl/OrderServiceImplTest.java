@@ -99,4 +99,10 @@ class OrderServiceImplTest {
         Mockito.when(orderRepository.save(new Order("4", OrderStatus.CANCEL))).thenReturn(new Order("4", OrderStatus.CANCEL));
         orderService.cancelOrder("4");
     }
+
+    @Test
+    void getUrlForPost() {
+        orderService.setOrderUrl("TESTE");
+        assertNotNull(orderService.getOrderUrl());
+    }
 }

@@ -60,11 +60,36 @@ class OrderTest {
         Order order3 = new Order("2", OrderStatus.PROGRESS);
 
         assertTrue(order1.equals(order2));
-        assertFalse(order1.equals(order3));
-        assertTrue(order1.equals(order2));
         assertEquals(order1.hashCode(), order2.hashCode());
+
         assertFalse(order1.equals(order3));
         assertNotEquals(order1.hashCode(), order3.hashCode());
+
+        assertFalse(order1.equals(null));
+
+        assertFalse(order1.equals("order"));
+
+        assertTrue(order2.equals(order1));
+
+        Order order4 = new Order("1", OrderStatus.PROGRESS);
+        assertTrue(order1.equals(order2) && order2.equals(order4) && order1.equals(order4));
+
+        assertTrue(order1.equals(order2));
+        order2.setId("3");
+        assertFalse(order1.equals(order2));
+
+        Order order5 = new Order("1", OrderStatus.DONE);
+        assertFalse(order1.equals(order5));
+
+        int originalHashCode = order1.hashCode();
+        order1.setId("5");
+        assertNotEquals(originalHashCode, order1.hashCode());
+
+        Order order6 = new Order();
+        order6.setId("6");
+        order6.setOrderStatus(OrderStatus.PROGRESS);
+        assertEquals("6", order6.getId());
+        assertEquals(OrderStatus.PROGRESS, order6.getOrderStatus());
     }
 
     @Test
