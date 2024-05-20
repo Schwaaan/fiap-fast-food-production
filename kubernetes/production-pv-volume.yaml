@@ -1,0 +1,16 @@
+# precisa?
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-volume
+  namespace: mo
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Mi
+  persistentVolumeReclaimPolicy: Retain
+  accessModes:
+    - ReadWriteOnce # ?
