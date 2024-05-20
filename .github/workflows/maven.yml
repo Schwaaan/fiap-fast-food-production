@@ -59,8 +59,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v2
         with:
-          context: ./groupforsix
-          file: ./groupforsix/Dockerfile
+          context: ./
+          file: ./Dockerfile
           push: true
           tags: manojs10/java-four-six:latest
       - name: Configure AWS credentials
