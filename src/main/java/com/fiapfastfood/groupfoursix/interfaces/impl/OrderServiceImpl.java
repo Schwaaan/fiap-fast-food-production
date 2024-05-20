@@ -53,6 +53,12 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public Order find(String id) {
+        Optional<Order> order = orderRepository.findById(id);
+        return order.orElseGet(Order::new);
+    }
+
+    @Override
     public Order cancelOrder(String id) {
         Optional<Order> order = orderRepository.findById(id);
 

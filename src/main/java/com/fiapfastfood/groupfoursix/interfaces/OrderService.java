@@ -12,4 +12,7 @@ public interface OrderService {
     Order cancelOrder(String id);
 
     Order updateOrder(StatusDTO statusDTO);
+
+    Order find(String id);
+
 }

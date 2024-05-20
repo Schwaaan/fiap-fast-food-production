@@ -28,4 +28,9 @@ public class OrderController {
     public Order cancelOrder(@RequestBody OrderDTO orderDTO) {
         return orderService.cancelOrder(orderDTO.getId());
     }
+
+    @GetMapping(value = "/find/{id}")
+    public Order findById(@PathVariable(value = "id") String id) {
+        return orderService.find(id);
+    }
 }
