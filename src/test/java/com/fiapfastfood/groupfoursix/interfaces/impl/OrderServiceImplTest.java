@@ -57,16 +57,16 @@ class OrderServiceImplTest {
     @Test
     void updateOrder() {
         Mockito.when(orderRepository.findById("3")).thenReturn(Optional.of(new Order("3")));
-        Mockito.when(orderRepository.save(new Order("3", OrderStatus.DONE))).thenReturn(new Order("3", OrderStatus.DONE));
+        Mockito.when(orderRepository.save(new Order("3", OrderStatus.CANCEL))).thenReturn(new Order("3", OrderStatus.CANCEL));
 
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setId("3");
 
-        Order order = orderService.updateOrder(new StatusDTO("3", 2L));
+        Order order = orderService.updateOrder(new StatusDTO("3", 3L));
 
         assertNotNull(order);
         assertEquals(order.getId(), orderDTO.getId());
-        assertEquals(order.getOrderStatus(), OrderStatus.DONE);
+        assertEquals(order.getOrderStatus(), OrderStatus.CANCEL);
     }
 
     @Test
