@@ -5,17 +5,12 @@ import com.fiapfastfood.groupfoursix.domain.OrderStatus;
 import com.fiapfastfood.groupfoursix.domain.dto.OrderDTO;
 import com.fiapfastfood.groupfoursix.domain.dto.StatusDTO;
 import com.fiapfastfood.groupfoursix.domain.repository.OrderRepository;
-import com.fiapfastfood.groupfoursix.interfaces.OrderService;
-import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.internal.matchers.Or;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;

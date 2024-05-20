@@ -1,6 +1,8 @@
 package com.fiapfastfood.groupfoursix.domain.dto;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 @Setter

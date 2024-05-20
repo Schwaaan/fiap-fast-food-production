@@ -1,7 +1,6 @@
 package com.fiapfastfood.groupfoursix.domain;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Or;
 
 import static org.junit.jupiter.api.Assertions.*;
 

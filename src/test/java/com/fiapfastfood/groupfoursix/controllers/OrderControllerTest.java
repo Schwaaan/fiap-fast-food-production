@@ -4,8 +4,6 @@ import com.fiapfastfood.groupfoursix.domain.Order;
 import com.fiapfastfood.groupfoursix.domain.OrderStatus;
 import com.fiapfastfood.groupfoursix.domain.dto.OrderDTO;
 import com.fiapfastfood.groupfoursix.domain.dto.StatusDTO;
-import com.fiapfastfood.groupfoursix.domain.repository.OrderRepository;
-import com.fiapfastfood.groupfoursix.interfaces.OrderService;
 import com.fiapfastfood.groupfoursix.interfaces.impl.OrderServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +14,7 @@ import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @RunWith(MockitoJUnitRunner.class)

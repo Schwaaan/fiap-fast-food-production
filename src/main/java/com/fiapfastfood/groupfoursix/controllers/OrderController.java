@@ -15,17 +15,17 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping(value = "/create")
-    public Order createOrder(@RequestBody OrderDTO orderDTO){
+    public Order createOrder(@RequestBody OrderDTO orderDTO) {
         return orderService.createOrder(orderDTO);
     }
 
     @PutMapping(value = "/update")
-    public Order updateOrder(@RequestBody StatusDTO statusDTO){
+    public Order updateOrder(@RequestBody StatusDTO statusDTO) {
         return orderService.updateOrder(statusDTO);
     }
 
     @DeleteMapping(value = "/cancel")
-    public Order cancelOrder(@RequestBody OrderDTO orderDTO){
+    public Order cancelOrder(@RequestBody OrderDTO orderDTO) {
         return orderService.cancelOrder(orderDTO.getId());
     }
 }
