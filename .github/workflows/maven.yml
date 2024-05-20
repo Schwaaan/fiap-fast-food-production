@@ -73,9 +73,7 @@ jobs:
       - name: Deploy to EKS
         run: |
           aws eks --region us-east-1 update-kubeconfig --name Fiap-FourSix
-          kubectl delete svc api-svc-production-foursix mongo-production-service
-          kubectl delete deployment foursix-production-deployment mongo-production-deployment
-          kubectl apply -f groupforsix/kubernetes/production-mongodb-deployment.yaml 
-          kubectl apply -f groupforsix/kubernetes/production-mongodb-service.yaml 
-          kubectl apply -f groupforsix/kubernetes/production-api-deployment.yaml 
-          kubectl apply -f groupforsix/kubernetes/production-api-service.yaml
+          kubectl apply -f kubernetes/production-mongodb-deployment.yaml 
+          kubectl apply -f kubernetes/production-mongodb-service.yaml 
+          kubectl apply -f kubernetes/production-api-deployment.yaml 
+          kubectl apply -f kubernetes/production-api-service.yaml
