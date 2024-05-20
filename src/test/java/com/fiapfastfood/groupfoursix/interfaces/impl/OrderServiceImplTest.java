@@ -70,6 +70,20 @@ class OrderServiceImplTest {
     }
 
     @Test
+    void updateOrderToDone() {
+        Mockito.when(orderRepository.findById("3")).thenReturn(Optional.of(new Order("3")));
+        Mockito.when(orderRepository.save(new Order("3", OrderStatus.DONE))).thenReturn(new Order("3", OrderStatus.DONE));
+
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setId("3");
+
+
+        assertThrows(Exception.class, () -> {
+            orderService.updateOrder(new StatusDTO("3", 2L));
+        });
+    }
+
+    @Test
     void notUpdateOrderBecauseNotFound() {
         Mockito.when(orderRepository.findById("3")).thenReturn(Optional.of(new Order("3")));
         Mockito.when(orderRepository.save(new Order("3", OrderStatus.DONE))).thenReturn(new Order("3", OrderStatus.DONE));
