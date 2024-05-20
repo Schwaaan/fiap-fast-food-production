@@ -1,13 +1,11 @@
-# precisa?
-
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mssql-order-pvc
+  name: mssql-production-pvc
 spec:
-  #storageClassName: manual   --somente informar quando houver pv criado
+  storageClassName: manual   #somente informar quando houver pv criado
   accessModes:
-  - ReadWriteOnce # what?
+  - ReadWriteOnce
   resources:
     requests:
       storage: 10Mi
