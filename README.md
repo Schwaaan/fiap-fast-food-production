@@ -57,4 +57,4 @@ Segue o print da cobertura de testes :
 ![image](https://github.com/Schwaaan/fiap-fast-food-production/assets/49553583/fcc31374-2ad3-4f27-b074-2c6c631b5425)
 
 
-
+Segue o link : https://sonarcloud.io/project/overview?id=Schwaaan_fiap-fast-food-production
