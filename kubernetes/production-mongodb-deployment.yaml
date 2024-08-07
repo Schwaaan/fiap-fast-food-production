@@ -28,3 +28,8 @@ spec:
       volumes:
         - name: mongo-data
           emptyDir: {}
+      initContainers:
+        - name: init-mongo-user
+          image: mongo:latest
+          command: [ "bash", "-c", "mongo --host localhost --port 27017 --eval 
+          'db.createUser({user: \"teste\", pwd: \"teste\", roles: [{role: \"readWrite\", db: \"teste\"}]})'" ]
