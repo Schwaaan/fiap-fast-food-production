@@ -35,7 +35,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Schwaaan_fiap-fast-food-production
   deploy:
-    # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build
     steps:
